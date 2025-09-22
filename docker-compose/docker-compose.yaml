@@ -1,0 +1,34 @@
+version: "3.9"
+
+#services:
+#  castlemock:
+#    image: tomcat:11.0.8-jdk21-temurin
+#    container_name: castlemock
+#    ports:
+#      - "8080:8080"
+#    volumes:
+#      # WAR'ı Tomcat'in webapps klasörüne mount ediyoruz
+#      - ./castlemock.war:/usr/local/tomcat/webapps/castlemock.war:ro
+#    environment:
+#      # İstersen bellek ayarlarını buradan özelleştirebilirsin
+#      - JAVA_OPTS=-Xms128m -Xmx512m
+#    healthcheck:
+#      test: ["CMD", "curl", "-fsS", "http://localhost:8080/castlemock/actuator/health || exit 1"]
+#      interval: 15s
+#      timeout: 5s
+#      retries: 10
+#    restart: unless-stopped
+services:
+  castlemock-new:
+#    image: yalcinyildiz/castlemock:v1.68
+    image: yalcinyildiz/castlemock-local:v1.68
+    ports:
+      - "8080:8080"
+#    environment:
+#      - JAVA_OPTS=Xms128m -Xmx512m
+#    healthcheck:
+#      test: ["CMD", "curl", "-fsS", "http://localhost:8080/castlemock/actuator/health || exit 1"]
+#      interval: 15s
+#      timeout: 5s
+#      retries: 10
+#    restart: unless-stopped
