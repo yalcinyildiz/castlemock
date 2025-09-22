@@ -1,5 +1,5 @@
-#FROM tomcat:11.0.8-jdk21-temurin
-FROM tomcat:11.0.5-jdk21-temurin-noble
+FROM tomcat:11.0.8-jdk21-temurin
+#FROM tomcat:11.0.5-jdk21-temurin-noble
 LABEL MAINTAINER="Karl Dahlgren <karl.dahlgren@castlemock.com>"
 
 ARG USER_NAME=tomcat
@@ -25,7 +25,7 @@ RUN rm -rf /usr/local/tomcat/webapps/ROOT \
 
 # change workdir
 WORKDIR /usr/local/tomcat/webapps
-COPY --chown=${USER_NAME}:${GROUP_NAME} castlemock-v1.68.war castlemock.war
+COPY --chown=${USER_NAME}:${GROUP_NAME} deploy/castlemock-v1.68.war castlemock.war
 
 # Expose HTTP port 8080
 EXPOSE 8080
